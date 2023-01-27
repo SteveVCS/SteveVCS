@@ -25,6 +25,8 @@ const context = canvas.getContext('2d');
 const grid = 15;
 const paddleHeight = grid * 5; // 80
 const maxPaddleY = canvas.height - grid - paddleHeight;
+ ctx.font = "50px serif";
+ctx.fillText("Score", 50, 90);
 
 var paddleSpeed = 6;
 var ballSpeed = 5;
