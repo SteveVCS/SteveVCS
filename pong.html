@@ -191,6 +191,39 @@ document.addEventListener('keyup', function(e) {
   if (e.which === 83 || e.which === 87) {
     leftPaddle.dy = 0;
   }
+      function draw() {
+            context.fillRect(
+                0,
+                0,
+                WIDTH,
+                HEIGHT
+            );
+            context.save();
+            context.fillStyle = '#FFF';
+
+            player.draw();
+            ai.draw();
+            ball.draw();
+
+            const width = 4;
+            const x = (WIDTH - width) * .5;
+            const step = HEIGHT / 15;
+
+            let y = 0;
+            while (y < HEIGHT) {
+                context.fillRect(
+                    x,
+                    y + step * .25,
+                    width,
+                    step * .5
+                );
+                y += step;
+            }
+
+            context.fillStyle = '#FFF';
+            context.fillText(`WIN: ${win} / LOSE: ${lose}`, 10, canvas.height - 10);
+            context.restore();
+        }
 });
 
 // start the game
